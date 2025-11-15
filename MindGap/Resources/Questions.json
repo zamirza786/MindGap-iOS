@@ -1,0 +1,34 @@
+[
+    {
+        "category": "Self-Reflection",
+        "text": "What was the best part of your day?"
+    },
+    {
+        "category": "Self-Reflection",
+        "text": "What is something that made you smile today?"
+    },
+    {
+        "category": "Gratitude",
+        "text": "What are you grateful for today?"
+    },
+    {
+        "category": "Growth",
+        "text": "What is one thing you learned today?"
+    },
+    {
+        "category": "Self-Reflection",
+        "text": "How are you feeling right now, and why?"
+    },
+    {
+        "category": "Growth",
+        "text": "What is a challenge you faced today and how did you handle it?"
+    },
+    {
+        "category": "Gratitude",
+        "text": "Who is someone you are grateful for and why?"
+    },
+    {
+        "category": "Self-Reflection",
+        "text": "What is something you are looking forward to?"
+    }
+]
