@@ -20,6 +20,9 @@ struct MindGapApp: App {
             }
             .environmentObject(themeManager)
             .preferredColorScheme(themeManager.colorScheme)
+            .onAppear {
+                ReminderManager.shared.requestPermission()
+            }
         }
         .modelContainer(for: JournalEntry.self)
     }
