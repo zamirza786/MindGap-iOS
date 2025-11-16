@@ -8,7 +8,7 @@ struct MainTabView: View {
                     Label("Home", systemImage: "house.fill")
                 }
 
-            Text("Mood Screen")
+            MoodHomeView()
                 .tabItem {
                     Label("Mood", systemImage: "smiley.fill")
                 }

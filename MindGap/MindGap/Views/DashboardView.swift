@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DashboardView: View {
     @StateObject private var viewModel = DashboardViewModel()
+    @State private var isShowingMoodTracker = false
 
     var body: some View {
         ScrollView {
@@ -12,7 +13,7 @@ struct DashboardView: View {
                     .padding(.horizontal)
 
                 // Mood Check-in
-                MoodCheckInCard()
+                MoodCheckInCard(isShowingMoodTracker: $isShowingMoodTracker)
                     .padding(.horizontal)
 
                 // Weekly Mood Summary
@@ -26,19 +27,28 @@ struct DashboardView: View {
             .padding(.vertical)
         }
         .background(AppColors.background)
+        .sheet(isPresented: $isShowingMoodTracker) {
+            MoodTrackerFlowView()
+        }
     }
 }
 
 struct MoodCheckInCard: View {
+    @Binding var isShowingMoodTracker: Bool
+
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
             Text("How are you feeling?")
                 .appFont(style: .subheadline)
             
             HStack {
-                ForEach(1...5, id: \.self) { index in
-                    Button(action: {}) {
-                        AppIcon("smiley", size: 32)
+                ForEach(MoodType.allCases, id: \.self) { moodType in
+                    Button(action: { isShowingMoodTracker.toggle() }) {
+                        VStack {
+                            AppIcon(moodType.icon, size: 32)
+                            Text(moodType.rawValue)
+                                .appFont(style: .caption)
+                        }
                     }
                 }
             }
