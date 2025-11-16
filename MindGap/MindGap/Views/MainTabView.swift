@@ -18,10 +18,12 @@ struct MainTabView: View {
                     Label("Journal", systemImage: "book.fill")
                 }
 
-            Text("Profile Screen")
-                .tabItem {
-                    Label("Profile", systemImage: "person.fill")
-                }
+            NavigationView { // Use NavigationView for the profile tab
+                ProfileView()
+            }
+            .tabItem {
+                Label("Profile", systemImage: "person.crop.circle.fill")
+            }
             
             NavigationView { // Use NavigationView for the settings tab
                 ReminderSettingsView()
