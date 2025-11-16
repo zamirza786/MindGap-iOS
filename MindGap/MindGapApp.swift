@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 @main
 struct MindGapApp: App {
@@ -20,5 +21,6 @@ struct MindGapApp: App {
             .environmentObject(themeManager)
             .preferredColorScheme(themeManager.colorScheme)
         }
+        .modelContainer(for: JournalEntry.self)
     }
 }

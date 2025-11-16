@@ -13,7 +13,7 @@ struct MainTabView: View {
                     Label("Mood", systemImage: "smiley.fill")
                 }
 
-            JournalView()
+            JournalHomeView()
                 .tabItem {
                     Label("Journal", systemImage: "book.fill")
                 }
