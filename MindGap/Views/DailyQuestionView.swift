@@ -84,7 +84,7 @@ struct DailyQuestionView: View {
             
             Text("Come back tomorrow for a new question.")
                 .font(.body)
-                .foregroundStyle(AppColors.secondaryText)
+                .foregroundStyle(AppColors.textSecondary)
             
             Spacer()
             

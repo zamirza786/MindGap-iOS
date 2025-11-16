@@ -4,16 +4,21 @@ import SwiftUI
 struct MindGapApp: App {
     @AppStorage("hasSeenOnboarding") var hasSeenOnboarding: Bool = false
     @State private var showSplash: Bool = true
+    @StateObject private var themeManager = ThemeManager()
 
     var body: some Scene {
         WindowGroup {
-            if showSplash {
-                SplashView(showSplash: $showSplash)
-            } else if hasSeenOnboarding {
-                LaunchView()
-            } else {
-                OnboardingView()
+            Group {
+                if showSplash {
+                    SplashView(showSplash: $showSplash)
+                } else if hasSeenOnboarding {
+                    LaunchView()
+                } else {
+                    OnboardingView()
+                }
             }
+            .environmentObject(themeManager)
+            .preferredColorScheme(themeManager.colorScheme)
         }
     }
 }
