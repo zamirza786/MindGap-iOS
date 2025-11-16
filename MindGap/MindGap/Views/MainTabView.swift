@@ -22,6 +22,13 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Profile", systemImage: "person.fill")
                 }
+            
+            NavigationView { // Use NavigationView for the settings tab
+                ReminderSettingsView()
+            }
+            .tabItem {
+                Label("Settings", systemImage: "gearshape.fill")
+            }
         }
         .accentColor(AppColors.accent)
     }
