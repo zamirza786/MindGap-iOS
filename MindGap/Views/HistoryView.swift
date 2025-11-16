@@ -33,7 +33,7 @@ struct HistoryView: View {
                 .font(.headline)
             Text("Your past reflections will appear here once you save them.")
                 .font(.subheadline)
-                .foregroundStyle(AppColors.secondaryText)
+                .foregroundStyle(AppColors.textSecondary)
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .center)
@@ -55,7 +55,7 @@ struct HistoryView: View {
             
             Text(entry.answer)
                 .font(.body)
-                .foregroundStyle(AppColors.secondaryText)
+                .foregroundStyle(AppColors.textSecondary)
                 .lineLimit(2)
         }
         .padding(.vertical, 8)

@@ -41,6 +41,14 @@ struct LaunchView: View {
             .tabItem {
                 Label("History", systemImage: "clock.fill")
             }
+            
+            // Tab 4: Design System
+            NavigationStack{
+                DesignSystemSampleView()
+            }
+            .tabItem {
+                Label("Theme", systemImage: "paintbrush.fill")
+            }
         }
         // Inject managers into the environment so nested views can access them.
         .environmentObject(dataManager)
