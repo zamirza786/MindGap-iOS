@@ -95,6 +95,10 @@ struct GoalDetailView: View {
                 animation: viewModel.namespace
             )
         }
+        .sheet(isPresented: $viewModel.showAddMilestoneSheet) {
+            AddMilestoneView(viewModel: viewModel)
+                .presentationDetents([.medium])
+        }
         .alert("Delete Goal", isPresented: $showingDeleteConfirmation) {
             Button("Delete", role: .destructive) {
                 viewModel.deleteGoal()

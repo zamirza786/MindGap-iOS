@@ -7,6 +7,7 @@ struct Milestone: Codable, Identifiable, Hashable {
     var id = UUID()
     var title: String
     var isCompleted: Bool = false
+    var dueDate: Date? = nil // New property
 }
 
 
