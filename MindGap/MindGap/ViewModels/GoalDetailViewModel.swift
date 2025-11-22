@@ -20,6 +20,7 @@ class GoalDetailViewModel: ObservableObject {
     @Published var timeline: [TimelineEvent] = []
     @Published var showProgressSheet: Bool = false
     @Published var showEditGoalSheet: Bool = false
+    @Published var showAddMilestoneSheet: Bool = false // New property
 
     // Dependencies
     let storage: GoalStorageProtocol
@@ -81,6 +82,13 @@ class GoalDetailViewModel: ObservableObject {
         let newProgress = totalCount > 0 ? Double(completedCount) / Double(totalCount) : 0
         
         updateProgress(newProgress)
+    }
+
+    func addMilestone(title: String, dueDate: Date?) {
+        let newMilestone = Milestone(title: title, dueDate: dueDate)
+        milestones.append(newMilestone)
+        // Milestones array is @Published, so UI will update
+        saveChanges()
     }
 
     func deleteGoal() {

@@ -2,12 +2,23 @@ import SwiftUI
 
 struct MilestoneSectionView: View {
     @ObservedObject var viewModel: GoalDetailViewModel
+    @State private var isExpanded: Bool = true // For expand/collapse animation
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
-            Text("Milestones")
-                .appFont(style: .headline)
-                .padding(.horizontal)
+            HStack {
+                Text("Milestones")
+                    .appFont(style: .headline)
+                Spacer()
+                Button {
+                    viewModel.showAddMilestoneSheet = true
+                } label: {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(AppColors.accent)
+                }
+            }
+            .padding(.horizontal)
 
             if viewModel.milestones.isEmpty {
                 Text("No milestones for this goal yet.")
@@ -15,10 +26,16 @@ struct MilestoneSectionView: View {
                     .foregroundColor(AppColors.textSecondary)
                     .padding(.horizontal)
             } else {
-                ForEach(viewModel.milestones) { milestone in
-                    MilestoneItemView(milestone: milestone) {
-                        viewModel.toggleMilestone(id: milestone.id)
+                DisclosureGroup(isExpanded: $isExpanded) {
+                    ForEach(viewModel.milestones) { milestone in
+                        MilestoneItemView(milestone: milestone) {
+                            viewModel.toggleMilestone(id: milestone.id)
+                        }
                     }
+                } label: {
+                    Text("Show/Hide Milestones (\(viewModel.milestones.count))") // Label for the disclosure group
+                        .appFont(style: .subheadline)
+                        .foregroundColor(AppColors.text)
                 }
                 .padding(.horizontal)
             }
