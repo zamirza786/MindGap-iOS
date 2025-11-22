@@ -38,7 +38,7 @@ struct JournalEntryEditorView: View {
                 viewModel.save()
                 dismiss()
             }
-            .buttonStyle(AppButtonStyle(style: .primary))
+            .buttonStyle(AppButtonStyle(style: .primary()))
             .padding(.horizontal)
         }
         .padding(.vertical)

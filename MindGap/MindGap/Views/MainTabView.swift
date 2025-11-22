@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @Environment(\.modelContext) private var modelContext // Inject modelContext
     var body: some View {
         TabView {
             DashboardView()
@@ -18,6 +19,13 @@ struct MainTabView: View {
                     Label("Journal", systemImage: "book.fill")
                 }
 
+            NavigationView {
+                GoalsView(modelContext: modelContext) // Pass the modelContext
+            }
+            .tabItem {
+                Label("Goals", systemImage: "target")
+            }
+            
             NavigationView { // Use NavigationView for the profile tab
                 ProfileView()
             }

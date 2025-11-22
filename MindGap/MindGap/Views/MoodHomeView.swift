@@ -17,7 +17,7 @@ struct MoodHomeView: View {
                 NavigationLink(destination: MoodSelectionView(viewModel: moodTrackerViewModel)) {
                     Text("Start Mood Check-In")
                 }
-                .buttonStyle(AppButtonStyle(style: .primary))
+                .buttonStyle(AppButtonStyle(style: .primary()))
 
                 // Recent Mood History
                 VStack(alignment: .leading, spacing: AppSpacing.medium) {

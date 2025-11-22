@@ -24,6 +24,6 @@ struct MindGapApp: App {
                 ReminderManager.shared.requestPermission()
             }
         }
-        .modelContainer(for: JournalEntry.self)
+        .modelContainer(for: [JournalEntry.self, Goal.self])
     }
 }

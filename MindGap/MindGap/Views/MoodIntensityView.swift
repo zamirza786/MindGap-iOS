@@ -14,7 +14,7 @@ struct MoodIntensityView: View {
             NavigationLink(destination: MoodNoteView(viewModel: viewModel)) {
                 Text("Continue")
             }
-            .buttonStyle(AppButtonStyle(style: .primary))
+            .buttonStyle(AppButtonStyle(style: .primary()))
         }
         .padding()
         .background(AppColors.background)
