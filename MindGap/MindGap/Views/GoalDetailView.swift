@@ -54,7 +54,7 @@ struct GoalDetailView: View {
                     ProgressSectionView(viewModel: viewModel)
                     
                     // Milestones Section
-                    MilestoneSectionView(viewModel: viewModel)
+                    MilestoneSectionView(viewModel: viewModel, namespace: viewModel.namespace)
                     
                     // Timeline Section
                     TimelineSectionView(timeline: viewModel.timeline)

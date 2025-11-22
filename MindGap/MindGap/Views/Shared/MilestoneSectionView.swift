@@ -3,6 +3,7 @@ import SwiftUI
 struct MilestoneSectionView: View {
     @ObservedObject var viewModel: GoalDetailViewModel
     @State private var isExpanded: Bool = true // For expand/collapse animation
+    let namespace: Namespace.ID // Add namespace property
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
@@ -40,6 +41,7 @@ struct MilestoneSectionView: View {
                 .padding(.horizontal)
             }
         }
+        .matchedGeometryEffect(id: "milestoneSection_\(viewModel.goal.id)", in: namespace) // Apply matched geometry effect
     }
 }
 
@@ -63,7 +65,7 @@ struct MilestoneSectionView_Previews: PreviewProvider {
         )
         let viewModel = GoalDetailViewModel(goal: goal, storage: storage, namespace: namespace)
 
-        MilestoneSectionView(viewModel: viewModel)
+        MilestoneSectionView(viewModel: viewModel, namespace: namespace)
             .padding()
             .background(AppColors.background)
     }
