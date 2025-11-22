@@ -78,6 +78,7 @@ struct GoalsView: View {
                                         GoalRowView(goal: goal, animation: goalAnimation)
                                     }
                                     .buttonStyle(PlainButtonStyle())
+                                    .animation(.spring(response: 0.35, dampingFraction: 0.85), value: goal.id) // Apply animation here
                                 }
                                 .onDelete(perform: viewModel.deleteGoal)
                             }
