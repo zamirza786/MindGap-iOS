@@ -95,7 +95,7 @@ struct ReflectionCard: View {
                 .appFont(style: .body)
             
             Button("Reflect Now") {}
-                .buttonStyle(AppButtonStyle(style: .primary))
+                .buttonStyle(AppButtonStyle(style: .primary()))
         }
         .padding()
         .appCard()

@@ -19,7 +19,7 @@ struct MoodNoteView: View {
             NavigationLink(destination: MoodSummaryView(viewModel: viewModel)) {
                 Text("Save Mood")
             }
-            .buttonStyle(AppButtonStyle(style: .primary))
+            .buttonStyle(AppButtonStyle(style: .primary()))
         }
         .padding()
         .background(AppColors.background)

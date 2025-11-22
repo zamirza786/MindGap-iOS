@@ -16,7 +16,7 @@ struct MoodSummaryView: View {
                 viewModel.saveMood()
                 presentationMode.wrappedValue.dismiss()
             }
-            .buttonStyle(AppButtonStyle(style: .primary))
+            .buttonStyle(AppButtonStyle(style: .primary()))
         }
         .padding()
         .background(AppColors.background)

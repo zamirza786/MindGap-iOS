@@ -8,7 +8,7 @@ struct DesignSystemSampleView: View {
             VStack(spacing: AppSpacing.large) {
                 // Gradient Background
                 ZStack {
-                    AppColors.gradient
+                    AppColors.defaultGradient
                         .ignoresSafeArea()
                     
                     VStack {
@@ -38,7 +38,7 @@ struct DesignSystemSampleView: View {
                 // Buttons
                 VStack(spacing: AppSpacing.medium) {
                     Button("Primary Button") {}
-                        .buttonStyle(AppButtonStyle(style: .primary))
+                        .buttonStyle(AppButtonStyle(style: .primary()))
                     Button("Secondary Button") {}
                         .buttonStyle(AppButtonStyle(style: .secondary))
                     Button("Ghost Button") {}
