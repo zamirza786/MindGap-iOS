@@ -139,6 +139,26 @@ class GoalDetailViewModel: ObservableObject {
         return "Due by \(goal.deadline.formatted(date: .abbreviated, time: .omitted))"
     }
 
+    var daysRemainingText: String? {
+        guard goal.deadline != Date.distantFuture else { return nil }
+        let calendar = Calendar.current
+        let now = Date()
+        let components = calendar.dateComponents([.day], from: now, to: goal.deadline)
+        
+        if goal.isCompleted {
+            return "Goal completed!"
+        } else if goal.deadline < now {
+            return "Overdue"
+        } else if let days = components.day {
+            if days == 0 {
+                return "Due today"
+            } else if days > 0 {
+                return "\(days) day\(days == 1 ? "" : "s") left"
+            }
+        }
+        return nil
+    }
+
     private func checkCompletionStatus() {
         if progress >= 1.0 {
             goal.isCompleted = true

@@ -10,9 +10,45 @@ struct GoalDetailView: View {
         ZStack(alignment: .bottom) {
             ScrollView {
                 VStack(alignment: .leading, spacing: AppSpacing.large) {
+                    // Custom Toolbar (Dismiss Button)
+                    HStack {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "chevron.left.circle.fill")
+                                .font(.title2)
+                                .foregroundColor(AppColors.text) // Dynamic color
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, AppSpacing.medium)
+
                     // Header
                     GoalDetailHeaderView(viewModel: viewModel, namespace: viewModel.namespace)
                         .padding(.horizontal)
+
+                    // Dates Section
+                    VStack(alignment: .leading, spacing: AppSpacing.small) {
+                        Text("Dates")
+                            .appFont(style: .headline)
+                        
+                        Text(viewModel.createdDateText)
+                            .appFont(style: .body)
+                        
+                        if let dueDateText = viewModel.dueDateText {
+                            Text(dueDateText)
+                                .appFont(style: .body)
+                        }
+                        
+                        if let daysRemainingText = viewModel.daysRemainingText {
+                            Text(daysRemainingText)
+                                .appFont(style: .body)
+                                .foregroundColor(AppColors.textSecondary) // Use a subtle color
+                        }
+                    }
+                    .padding(.horizontal)
+                    .appCard() // Apply card styling
                     
                     // Progress Section
                     ProgressSectionView(viewModel: viewModel)
